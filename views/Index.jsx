@@ -2,21 +2,22 @@ const React = require('react');
 
 class Index extends React.Component {
     render() {
-        const logs = this.props.logs
+        const logs = this.props.caplog
         return (
             <div>
                 <h1> Captain's Log INDEX</h1>
                 <nav>
                     <a href='/caplog/new'>Create a new Log Post</a>
-                </nav> 
+                </nav>
                 <ul>
                     {logs.map((log) => {
                         return (
                             <li>
-                            {`${log.title}`}    
+                                {`${log.title}`}
                             </li>
                         )
-                    })}
+                    })
+                    }
                 </ul>
             </div>
         )

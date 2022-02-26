@@ -1,8 +1,8 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express()
-const Log = require('./models/caplog')
+const app = express();
+const Log = require('./models/caplog');
 
 
 //MVC SETUP\\
@@ -67,7 +67,7 @@ app.post('/caplog', (req, res) => {
         console.log('i am false')
     }
 
-    Logs.create(req.body, (err, createdLogs) => {
+    Log.create(req.body, (err, createdLogs) => {
         if (err) {
             res.status(403).send(err)
         } else {
