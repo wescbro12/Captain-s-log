@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express()
-const Logs = require('./models/caplog')
+const Log = require('./models/caplog')
 
 
 //MVC SETUP\\
@@ -30,11 +30,21 @@ app.use((req, res, next) => {
 
 
 //INDEX\\
-
+app.get('/caplog', (req, res) => {
+    // res.render('Index')
+    Log.find({}, (err, foundLogs) => {
+        if (err) {
+            res.status(400).send(err)
+        } else {
+            res.render('Index', {
+                caplog: foundLogs
+            })
+        }
+    })
+});
 
 //NEW\\
 app.get('/caplog/new', (req, res) => {
-
     res.render('New')
 })
 
@@ -65,7 +75,7 @@ app.post('/caplog', (req, res) => {
             res.redirect('/caplog')
         }
     })
-    res.send(req.body)
+    // res.send(req.body)
 
 })
 
@@ -77,17 +87,17 @@ app.post('/caplog', (req, res) => {
 
 
 //SHOW\\
-app.get('/caplog/:id', (req, res) => {
-    Log.findById(req.params.id, (err, foundLog) => {
-        if (err) {
-            res.status(400).send(err)
-        } else {
-            res.render('Show', {
-                log: foundLog
-            })
-        }
-    })
-})
+// app.get('/caplog/:id', (req, res) => {
+//     Log.findById(req.params.id, (err, foundLog) => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.render('Show', {
+//                 log: foundLog
+//             })
+//         }
+//     })
+// })
 
 
 app.listen(PORT, () => {

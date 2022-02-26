@@ -10,7 +10,7 @@ class New extends React.Component {
                 </nav>
                 <form action="/caplog" method="POST">
                     Log Title:<br /><input name="title" type="text" /><br />
-                    Date:<br /><input name="date" type="text" /><br />
+                    Date:<br /><input name="date" type="date" /><br />
                     Entry:<br /><textarea name="entry" /><br />
                     Is Ship Broken?:<input name="shipIsBroken" type="checkbox" /><br />
                     <input type="submit" value="Post Log" />
