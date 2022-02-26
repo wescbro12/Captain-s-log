@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const app = express();
 const Log = require('./models/caplog');
 
@@ -27,7 +28,7 @@ app.use((req, res, next) => {
     next()
 })
 
-
+app.use(methodOverride('_method'))
 
 //INDEX\\
 app.get('/caplog', (req, res) => {
@@ -51,7 +52,15 @@ app.get('/caplog/new', (req, res) => {
 
 //DELETE\\
 
-
+app.delete('/caplog/:id', (req, res) => {
+    Log.findByIdAndDelete(req.params.id, (err, deletedLogs) => {
+        if (!err) {
+            res.redirect('/caplog')
+        } else {
+            res.status(400).send(err)
+        }
+    })
+})
 
 //UPDATE\\
 
