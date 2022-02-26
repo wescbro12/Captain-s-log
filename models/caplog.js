@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const logSchema = new mongoose.Schema({
     title: String,
     entry: String,
+    date: String,
     shipIsBroken: Boolean
 });
 
