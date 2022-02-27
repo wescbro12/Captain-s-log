@@ -13,6 +13,7 @@ class Show extends React.Component {
                 <p>Entry Date:{logs.date}</p><br />
                 <p>Entry:{logs.entry}</p>
                 <p>Is the ship in need of repair?<br />{logs.shipIsBroken ? 'Repairs are needed' : 'No repairs needed, kick back and relax'}</p>
+                <a href={`/caplog/${logs._id}/edit`}>Edit this post</a>
             </div>
         )
     }

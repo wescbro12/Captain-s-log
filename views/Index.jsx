@@ -21,11 +21,13 @@ class Index extends React.Component {
 
                                     <input type="submit" value={`Delete ${log.title}`} />
                                 </form>
+                                
                             </li>
                         )
                     })
                     }
                 </ul>
+               
             </div>
         )
     }

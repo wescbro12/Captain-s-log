@@ -93,7 +93,17 @@ app.post('/caplog', (req, res) => {
 
 //EDIT\\
 
-
+app.get('/caplog/:id/edit', (req, res) => {
+    Log.findById(req.params.id, (err, foundLogs) => {
+        if (err) {
+            res.status(400).send(err)
+        } else {
+            res.render('Edit', {
+                caplog: foundLogs
+            })
+        }
+    })
+})
 
 //SHOW\\
 app.get('/caplog/:id', (req, res) => {
