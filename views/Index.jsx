@@ -1,11 +1,13 @@
 const React = require('react');
+const Default = require('./layout/Default.jsx')
 
 class Index extends React.Component {
     render() {
         const logs = this.props.caplog
         return (
+            <Default title="Captain's Log Directory">
             <div>
-                <h1> Captain's Log INDEX</h1>
+                {/* <h1> Captain's Log INDEX</h1> */}
                 <nav>
                     <a href='/caplog/new'>Create a new Log Post</a>
                 </nav>
@@ -29,6 +31,7 @@ class Index extends React.Component {
                 </ul>
                
             </div>
+         </Default>   
         )
     }
 }

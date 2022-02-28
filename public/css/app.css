@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
+
+body {
+  background: url(https://i2.wp.com/erraticus.co/wp-content/uploads/2017/02/76c561d04c6316e9d36549c6c35ed7fe1.png?resize=800%2C445&ssl=1);
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(9, 102, 126);
+  
+}
+
+h1 {
+  font-family: 'Righteous', cursive;
+  background: rgba(253, 253, 251, 0.205);
+  margin:0;
+  margin-bottom: .5em;
+  padding: 1em;
+  text-align: center;
+}
+h2 {
+  font-family: 'Righteous', cursive;
+    background: rgb(253, 253, 251, 0.205); 
+  margin:0;
+  margin-bottom: .5em;
+  padding: 1em;
+  text-align: left;
+}
+
+a {
+  color: rgb(2, 41, 99);
+  text-decoration: none;
+  text-shadow: 1px 1px 1px black;
+  font-size: 1.5em;
+  background: rgba(109, 139, 104, 0.473);
+}
+
+a:hover {
+  color: ghostwhite;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  color: rgb(2, 41, 99)
+}
+
+input[type=text] {
+  padding: .3em;
+}
+
+input[type=submit] {
+  padding: .3em;
+  color: rgba(109, 139, 104, 0.9);
+  background: rgb(2, 41, 99);
+  font-size: 1em;
+  border-radius: 10%;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+b {
+font-size: 19px;
+font-weight:400;
+}

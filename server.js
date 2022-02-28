@@ -3,13 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const app = express();
-const Log = require('./models/caplog');
+// const Log = require('./models/caplog');
+const router = require('./controllers/logs.js')
 
 
 //MVC SETUP\\
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
 
+app.use(express.static('public'))
 const PORT = 3001
 
 
@@ -30,109 +32,111 @@ app.use((req, res, next) => {
 
 app.use(methodOverride('_method'))
 
-//INDEX\\
-app.get('/caplog', (req, res) => {
-    // res.render('Index')
-    Log.find({}, (err, foundLogs) => {
-        if (err) {
-            res.status(400).send(err)
-        } else {
-            res.render('Index', {
-                caplog: foundLogs
-            })
-        }
-    })
-});
+app.use('/caplog', router)
 
-//NEW\\
-app.get('/caplog/new', (req, res) => {
-    res.render('New')
-})
+// //INDEX\\
+// app.get('/caplog', (req, res) => {
+//     // res.render('Index')
+//     Log.find({}, (err, foundLogs) => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.render('Index', {
+//                 caplog: foundLogs
+//             })
+//         }
+//     })
+// });
 
-
-//DELETE\\
-
-app.delete('/caplog/:id', (req, res) => {
-    Log.findByIdAndDelete(req.params.id, (err, deletedLogs) => {
-        if (!err) {
-            res.redirect('/caplog')
-        } else {
-            res.status(400).send(err)
-        }
-    })
-})
-
-//UPDATE\\
-app.put('/caplog/:id', (req, res) => {
-    if (req.body.shipIsBroken === 'on') {
-        req.body.shipIsBroken = true
-        console.log('i am true')
-    } else {
-        req.body.shipIsBroken = false
-        console.log('i am false')
-    }
-
-    Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLogs) => {
-        if (err) {
-            res.status(400).send(err)
-        } else {
-            res.redirect(`/caplog/${req.params.id}`)
-        }
-    })
-})
+// //NEW\\
+// app.get('/caplog/new', (req, res) => {
+//     res.render('New')
+// })
 
 
-//CREATE\\
-app.post('/caplog', (req, res) => {
-    if (req.body.shipIsBroken === 'on') {
-        req.body.shipIsBroken = true
-        console.log('i am true')
-    } else {
-        req.body.shipIsBroken = false
-        console.log('i am false')
-    }
+// //DELETE\\
 
-    Log.create(req.body, (err, createdLogs) => {
-        if (err) {
-            res.status(403).send(err)
-        } else {
-            console.log(createdLogs)
-            res.redirect('/caplog')
-        }
-    })
-    // res.send(req.body)
+// app.delete('/caplog/:id', (req, res) => {
+//     Log.findByIdAndDelete(req.params.id, (err, deletedLogs) => {
+//         if (!err) {
+//             res.redirect('/caplog')
+//         } else {
+//             res.status(400).send(err)
+//         }
+//     })
+// })
 
-})
+// //UPDATE\\
+// app.put('/caplog/:id', (req, res) => {
+//     if (req.body.shipIsBroken === 'on') {
+//         req.body.shipIsBroken = true
+//         console.log('i am true')
+//     } else {
+//         req.body.shipIsBroken = false
+//         console.log('i am false')
+//     }
+
+//     Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLogs) => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.redirect(`/caplog/${req.params.id}`)
+//         }
+//     })
+// })
+
+
+// //CREATE\\
+// app.post('/caplog', (req, res) => {
+//     if (req.body.shipIsBroken === 'on') {
+//         req.body.shipIsBroken = true
+//         console.log('i am true')
+//     } else {
+//         req.body.shipIsBroken = false
+//         console.log('i am false')
+//     }
+
+//     Log.create(req.body, (err, createdLogs) => {
+//         if (err) {
+//             res.status(403).send(err)
+//         } else {
+//             console.log(createdLogs)
+//             res.redirect('/caplog')
+//         }
+//     })
+//     // res.send(req.body)
+
+// })
 
 
 
 
-//EDIT\\
+// //EDIT\\
 
-app.get('/caplog/:id/edit', (req, res) => {
-    Log.findById(req.params.id, (err, foundLogs) => {
-        if (err) {
-            res.status(400).send(err)
-        } else {
-            res.render('Edit', {
-                caplog: foundLogs
-            })
-        }
-    })
-})
+// app.get('/caplog/:id/edit', (req, res) => {
+//     Log.findById(req.params.id, (err, foundLogs) => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.render('Edit', {
+//                 caplog: foundLogs
+//             })
+//         }
+//     })
+// })
 
-//SHOW\\
-app.get('/caplog/:id', (req, res) => {
-    Log.findById(req.params.id, (err, foundLogs) => {
-        if (err) {
-            res.status(400).send(err)
-        } else {
-            res.render('Show', {
-                caplog: foundLogs
-            })
-        }
-    })
-})
+// //SHOW\\
+// app.get('/caplog/:id', (req, res) => {
+//     Log.findById(req.params.id, (err, foundLogs) => {
+//         if (err) {
+//             res.status(400).send(err)
+//         } else {
+//             res.render('Show', {
+//                 caplog: foundLogs
+//             })
+//         }
+//     })
+// })
 
 
 app.listen(PORT, () => {
