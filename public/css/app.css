@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
+@import url("https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Bilbo+Swash+Caps&family=Cherish&family=Ma+Shan+Zheng&family=Yatra+One&display=swap");
 
 body {
   background: url(https://i2.wp.com/erraticus.co/wp-content/uploads/2017/02/76c561d04c6316e9d36549c6c35ed7fe1.png?resize=800%2C445&ssl=1);
   margin: 0;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Beth Ellen', cursive;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(9, 102, 126);
@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  font-family: 'Righteous', cursive;
+  font-family: 'Ma Shan Zheng', cursive;
   background: rgba(253, 253, 251, 0.205);
   margin:0;
   margin-bottom: .5em;
@@ -19,7 +19,7 @@ h1 {
   text-align: center;
 }
 h2 {
-  font-family: 'Righteous', cursive;
+  font-family: 'Ma Shan Zheng', cursive;
     background: rgb(253, 253, 251, 0.205); 
   margin:0;
   margin-bottom: .5em;

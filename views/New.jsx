@@ -6,7 +6,7 @@ class New extends React.Component {
         return (
             <Default title="New Log">
             <div>
-                <h1>Create a NEW Log Entry</h1>
+                {/* <h1>Create a NEW Log Entry</h1> */}
                 <nav>
                     <a href='/caplog'> Return to Log Directory</a>
                 </nav>
