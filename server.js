@@ -67,23 +67,23 @@ app.use('/caplog', router)
 // })
 
 // //UPDATE\\
-// app.put('/caplog/:id', (req, res) => {
-//     if (req.body.shipIsBroken === 'on') {
-//         req.body.shipIsBroken = true
-//         console.log('i am true')
-//     } else {
-//         req.body.shipIsBroken = false
-//         console.log('i am false')
-//     }
+app.put('/caplog/:id', (req, res) => {
+    if (req.body.shipIsBroken === 'on') {
+        req.body.shipIsBroken = true
+        console.log('i am true')
+    } else {
+        req.body.shipIsBroken = false
+        console.log('i am false')
+    }
 
-//     Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLogs) => {
-//         if (err) {
-//             res.status(400).send(err)
-//         } else {
-//             res.redirect(`/caplog/${req.params.id}`)
-//         }
-//     })
-// })
+    Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLogs) => {
+        if (err) {
+            res.status(400).send(err)
+        } else {
+            res.redirect(`/caplog/${req.params.id}`)
+        }
+    })
+})
 
 
 // //CREATE\\
