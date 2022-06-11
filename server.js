@@ -12,7 +12,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
 
 app.use(express.static('public'))
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 
 //MODELS\\
